@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <style>
+        #dbtn{
+background-color: brown;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+    <h1>Student Form</h1>
+
+    <table border="4" >
+        <tbody>
+            <tr>
+                <th>Name:</th>
+                <td><input type="text" placeholder="enter ur name" id="name"></td>
+            </tr>
+
+            <tr>
+                <th>Age:</th>
+                <td><input type="number" placeholder="enter ur age" id="age"></td>
+            </tr>
+
+            <tr>
+                <th>Gender:</th>
+                <td><input type="radio" name="gender" id="gender" value="male">Male</input>
+                    <input type="radio" name="gender" id="gender" value="female">female</input>
+                </td>
+            </tr>
+
+            <tr>
+                <th>Course:</th>
+                <td><select id="course">
+                        <option>javascript</option>
+                        <option>devops</option>
+                    </select></td>
+            </tr>
+
+            <tr>
+                <th>Email:</th>
+                <td><input type="email" placeholder="enter ur mail id" id="email"></td>
+            </tr>
+
+            <tr>
+                <td colspan="2">
+                <button style="width:100%; background-color: aqua;"  onclick="main()" id="btn">save</button></td>
+            </tr>
+
+        </tbody>
+    </table>
+<br>
+<br>
+    <table border="3" id="output">
+        <tbody>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Gender</th>
+                <th>Course</th>
+                <th>Email</th>
+                <th>Action</th>
+
+            </tr>
+        </tbody>
+    </table>
+</center>
+    <script>
+
+function main() { 
+            // Get input values 
+            var name =document.getElementById("name").value; 
+            var age= document.getElementById("age").value; 
+            var gender = document.querySelector('input[name="gender"]:checked').value;
+        
+            var course=document.getElementById("course").value;
+            var email=document.getElementById("email").value;
+            // Get the table and insert a new row at the end 
+            var table = document.getElementById("output"); 
+            var newRow = table.insertRow(table.rows.length); 
+
+            newRow.insertCell(0).innerHTML = name; 
+            newRow.insertCell(1).innerHTML = age; 
+            newRow.insertCell(2).innerHTML = gender; 
+            newRow.insertCell(3).innerHTML = course; 
+            newRow.insertCell(4).innerHTML = email; 
+            newRow.insertCell(5).innerHTML ='<button id="dbtn" onclick="deleteData(this)" >Delete</button'; 
+
+            clearInputs();
+
+}
+
+function deleteData(button) { 
+            
+            // Get the parent row of the clicked button 
+            var row = button.parentNode.parentNode; 
+  
+            // Remove the row from the table 
+            row.parentNode.removeChild(row); 
+        } 
+
+function clearInputs() { 
+            
+            // Clear input fields 
+            document.getElementById("name").value = ""; 
+            document.getElementById("age").value = ""; 
+            document.getElementById('male').checked = false;
+            document.getElementById('female').checked = false;
+            document.getElementById("course").value = ""; 
+            document.getElementById("email").value = ""; 
+        } 
+
+
+    </script>
+</body>
+
+</html>

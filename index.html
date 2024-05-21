@@ -1,0 +1,77 @@
+<h1 id="one">Hello world</h1>
+
+<h1 id="two">Hello makkalae</h1>
+
+<h1 class="two">Hello Tamilnadu</h1>
+
+<script>
+var firstpara = document.getElementById("one")
+firstpara.textContent="Bye world"
+
+var secondpara = document.querySelector("#two")
+console.log(secondpara)
+
+var thirdpara = document.querySelector(".two")
+console.log(thirdpara)
+
+
+</script>
+
+
+<div id="container">
+    <p id="para1">This is first para </p>
+    <p id="para2">This is second para </p>
+    <p id="para3">This is third para </p>
+
+    <ul>
+        <li>item1</li>
+        <li class="special">item2</li>
+        <li>item3</li>
+    </ul>
+
+    <div id="mydiv">
+        <h1>This is bold text</h1>
+    </div>
+</div>
+
+<script>
+    var p2 = document.getElementById("para2")
+    console.log(p2.textContent)
+
+    var p3 = document.getElementById("para3")
+    p3.textContent = "updated the para"
+
+    var mydiv = document.getElementById("mydiv")
+mydiv.innerhtml = "<h1>This is bold text </h1>"
+
+var special = document.querySelector(".special")
+console.log(special.textContent)
+
+</script>
+
+
+<input type="text" placeholder="number1" id="num1">
+<br>
+<input type="text" placeholder="number2" id="num2">
+<br>
+<button id="button" onclick="add()">Add</button>
+
+<h1 id="result">Result is:</h1>
+
+
+<script>
+    var number1 =document.getElementById("num1")
+    var number2 =document.getElementById("num2")
+
+    var result = document.getElementById("result")
+
+    function add()
+    {
+        var ans = Number(num1.value)+Number(num2.value)
+        console.log(ans) 
+
+        result.textContent="result is"+ans
+    }
+
+    
+</script>
